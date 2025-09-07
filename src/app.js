@@ -1,0 +1,13 @@
+import "./js/calculation";
+import "./js/choosenumber";
+import "./js/datebirthday";
+import "./js/football";
+import "./js/footer";
+import "./js/googledino";
+import "./js/header";
+import "./js/modalname";
+import "./js/ourteam";
+import "./js/randomnumber";
+import "./js/rockpapergame";
+import "./js/scientistfilter";
+import "./js/timecalculation";
