@@ -914,18 +914,534 @@ restartBtn.addEventListener("click", restartGame);
 document.addEventListener("keydown", jump);
 
 },{}],"7clXR":[function(require,module,exports,__globalThis) {
+// import darkLogo from "/img/photo/logo.webp";
+// import whiteLogo from "/img/photo/white-logo.webp";
+// import bodyBackground from "/img/photo/bg.webp";
+// document.body.style.backgroundImage = `url(${bodyBackground})`;
+// const input = document.querySelector(".header__input");
+// const body = document.querySelector("body");
+// const container = document.querySelector(".container");
+// const headerLogo = document.querySelector(".header__logo");
+// input.addEventListener("click", (event) => {
+//   body.classList.toggle("dark-mode");
+//   if (body.classList.contains("dark-mode")) {
+//     headerLogo.src = whiteLogo;
+//   } else {
+//     headerLogo.src = darkLogo;
+//   }
+// });
+// const btns = document.querySelectorAll(".header__modal-button");
+// btns.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     const selectedType = btn.textContent.trim(); // число, ігри, ознайомчий
+//     const typeMap = {
+//       Числовий: ["Калькулятор", "Введіть 3 числа"],
+//       Ігровий: ["Камінь - ножиці - папір", "Google динозавр", "Футбол"],
+//       Ознайомчий: [
+//         "Популярні інетрактивні ігри",
+//         "Калькулятор часу",
+//         "Обери вченого/их",
+//       ],
+//     };
+//     const selectedTitles = typeMap[selectedType];
+//     const allSections = document.querySelectorAll("section");
+//     allSections.forEach((section) => {
+//       const heading = section.querySelector("h1, h2, h3");
+//       if (!heading) {
+//         section.style.display = "none";
+//         return;
+//       }
+//       const text = heading.textContent.trim();
+//       if (selectedTitles.includes(text)) {
+//         section.style.display = "";
+//       } else {
+//         section.style.display = "none";
+//       }
+//     });
+//   });
+// });
 
 },{}],"dDOV5":[function(require,module,exports,__globalThis) {
+const modalBtnNameClose = document.querySelector(".modal__name__close");
+const modalName = document.querySelector(".modal__name");
+modalBtnNameClose.addEventListener("click", ()=>{
+    modalName.classList.add("hidden");
+});
+const input = document.getElementById("username");
+const saveButton = document.querySelector(".modal_name__button");
+const headerText = document.querySelector(".header__texter");
+saveButton.addEventListener("click", function() {
+    const newName = input.value.trim();
+    if (newName !== "") {
+        headerText.textContent = `\u{412}\u{456}\u{442}\u{430}\u{454}\u{43C}\u{43E}, ${newName}!`;
+        modalName.classList.add("modal_move");
+        setTimeout(()=>{
+            modalName.classList.add("hidden");
+        }, 1200);
+    }
+});
+document.body.addEventListener("click", (event)=>{
+    if (event.target === event.currentTarget) {
+        modalName.classList.add("modal_move");
+        setTimeout(()=>{
+            modalName.classList.add("hidden");
+        }, 1200);
+    }
+});
+window.addEventListener("keydown", (event)=>{
+    if (event.code === "Escape") {
+        modalName.classList.add("modal_move");
+        setTimeout(()=>{
+            modalName.classList.add("hidden");
+        }, 1200);
+    }
+});
 
 },{}],"bIkZK":[function(require,module,exports,__globalThis) {
+// import vladdraga from "/img/photo/vladdraga.webp";
+// import lev from "/img/photo/lev.webp";
+// import davyd from "/img/photo/davyd.webp";
+// import mukolafok from "/img/photo/mukolafok.webp";
+// import nazar from "/img/photo/nazar.webp";
+// const team = [
+//   {
+//     name: "Ростислав",
+//     info: "Teamlead, Розробник",
+//     image:
+//       "https://img.lovepik.com/png/20231116/cartoon-coding-geek-using-a-laptop-and-headphones-vector-clipart_611738_wh860.png",
+//   },
+//   {
+//     name: "Влад Д.",
+//     info: "Scrum Master, Розробник",
+//     image: vladdraga,
+//   },
+//   {
+//     name: "Лев",
+//     info: "Розробник",
+//     image: lev,
+//   },
+//   {
+//     name: "Давид",
+//     info: "Розробник",
+//     image: davyd,
+//   },
+//   {
+//     name: "Микола",
+//     info: "Розробник",
+//     image: mukolafok,
+//   },
+//   {
+//     name: "Влад К.",
+//     info: "Розробник",
+//     image:
+//       "https://img.lovepik.com/png/20231116/cartoon-coding-geek-using-a-laptop-and-headphones-vector-clipart_611738_wh860.png",
+//   },
+//   {
+//     name: "Назар",
+//     info: "Розробник",
+//     image: nazar,
+//   },
+// ];
+// let current = 0;
+// const img = document.getElementById("teamImage");
+// const name = document.getElementById("teamName");
+// const info = document.getElementById("teamInfo");
+// const dotsContainer = document.getElementById("dots");
+// function updateSlider() {
+//   const person = team[current];
+//   img.src = person.image;
+//   name.textContent = person.name;
+//   info.textContent = person.info;
+//   document.querySelectorAll(".dot").forEach((dot, index) => {
+//     dot.classList.toggle("active", index === current);
+//   });
+// }
+// function createDots() {
+//   team.forEach((_, i) => {
+//     const dot = document.createElement("div");
+//     dot.classList.add("dot");
+//     if (i === current) dot.classList.add("active");
+//     dotsContainer.appendChild(dot);
+//   });
+// }
+// document.getElementById("next").onclick = () => {
+//   current = (current + 1) % team.length;
+//   updateSlider();
+// };
+// document.getElementById("prev").onclick = () => {
+//   current = (current - 1 + team.length) % team.length;
+//   updateSlider();
+// };
+// createDots();
+// updateSlider();
 
 },{}],"5kUBR":[function(require,module,exports,__globalThis) {
+function random() {
+    const min = 1;
+    const max = 10;
+    const number = Math.floor(Math.random() * (max - min + 1)) + min;
+    const inputEl = document.querySelector(".random-number__number");
+    const userStr = inputEl.value.trim();
+    const text = document.querySelector(".random-number__text");
+    if (userStr === "" || isNaN(userStr)) {
+        text.style.color = "#ff0000";
+        text.textContent = "\u0411\u0443\u0434\u044C \u043B\u0430\u0441\u043A\u0430, \u0432\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E \u0432\u0456\u0434 1 \u0434\u043E 10.";
+        return;
+    }
+    if (number === Number(userStr)) {
+        text.style.color = "#039900";
+        text.textContent = `\u{412}\u{456}\u{442}\u{430}\u{44E}, \u{432}\u{438} \u{432}\u{433}\u{430}\u{434}\u{430}\u{43B}\u{438} \u{447}\u{438}\u{441}\u{43B}\u{43E} ${number}!`;
+    } else {
+        text.style.color = "#900";
+        text.textContent = `\u{412}\u{438} \u{43F}\u{440}\u{43E}\u{433}\u{440}\u{430}\u{43B}\u{438}, \u{43A}\u{43E}\u{43C}\u{43F}\u{2019}\u{44E}\u{442}\u{435}\u{440} \u{437}\u{430}\u{433}\u{430}\u{434}\u{430}\u{432} ${number}!`;
+    }
+}
+const click = document.querySelector(".random-number__btn");
+click.addEventListener("click", random);
+document.querySelector(".random-number__number").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") random();
+});
 
 },{}],"kRYnB":[function(require,module,exports,__globalThis) {
+// BUTTONS
+const stoneButton = document.querySelector(".stone");
+const scissorsButton = document.querySelector(".scissors");
+const paperButton = document.querySelector(".paper");
+// RESULT
+const resultText = document.querySelector(".rsp__result");
+// SCORE TEXT
+const computerText = document.querySelector(".pc");
+const playerText = document.querySelector(".you");
+// SHOW AI CHOICE
+const showAiChoice = document.querySelector(".rsp__btn");
+// SOUND EFFECTS
+const sound = document.querySelector(".rsp__audio");
+// ARRAY CHOICE
+const choice = [
+    "stone",
+    "scissors",
+    "paper"
+];
+// RANGS
+const rangs = [
+    "Noob\uD83E\uDD13",
+    "Advanced\uD83D\uDCA1",
+    "Hacker\uD83D\uDEF8"
+];
+const rangText = document.querySelector(".rsp__mods-rang");
+let actualRang = "Noob\uD83E\uDD13";
+// CHOICE
+let playerChoice = "";
+let aiChoice = "";
+// SCORE
+let playerScore = 0;
+let aiScore = 0;
+stoneButton.addEventListener("click", (event)=>{
+    playerChoice = choice[0];
+    getAiChoice();
+    checkChoices();
+});
+scissorsButton.addEventListener("click", (event)=>{
+    playerChoice = choice[1];
+    getAiChoice();
+    checkChoices();
+});
+paperButton.addEventListener("click", (event)=>{
+    playerChoice = choice[2];
+    getAiChoice();
+    checkChoices();
+});
+// CHECK CHOICE
+function checkChoices() {
+    if (playerChoice === aiChoice) {
+        resultText.textContent = "\u041D\u0456\u0447\u0438\u044F!";
+        resultText.style.color = "black";
+    } else if (playerChoice === "stone" && aiChoice === "scissors" || playerChoice === "scissors" && aiChoice === "paper" || playerChoice === "paper" && aiChoice === "stone") {
+        playerScore += 1;
+        resultText.textContent = "\u0412\u0438 \u0432\u0438\u0433\u0440\u0430\u043B\u0438 \u0440\u0430\u0443\u043D\u0434!";
+        resultText.style.color = "#039900";
+    } else {
+        aiScore += 1;
+        resultText.textContent = "\u041A\u043E\u043C\u043F'\u044E\u0442\u0435\u0440 \u0432\u0438\u0433\u0440\u0430\u0432 \u0440\u0430\u0443\u043D\u0434!";
+        resultText.style.color = "red";
+    }
+    playerText.textContent = `\u{412}\u{438} - ${playerScore}`;
+    computerText.textContent = `\u{41A}\u{43E}\u{43C}\u{43F}'\u{44E}\u{442}\u{435}\u{440} - ${aiScore}`;
+    playerText.style.fontFamily = "Montserrat Alternates";
+    playerText.style.fontSize = "12px";
+    computerText.style.fontFamily = "Montserrat Alternates";
+    computerText.style.fontSize = "12px";
+    if (isFourtySecondsModeOn && playerScore >= 20) {
+        clearInterval(timeInterval);
+        isFourtySecondsModeOn = false;
+        alert("\u0412\u0456\u0442\u0430\u044E!\u0412\u0438 \u0432\u0438\u0433\u0440\u0430\u043B\u0438!");
+        actualRang = rangs[1];
+        rangText.textContent = `\u{412}\u{430}\u{448} \u{440}\u{430}\u{43D}\u{433}: ${actualRang}`;
+        playerScore = 0;
+        aiScore = 0;
+        playerText.textContent = `\u{412}\u{438} - ${playerScore}`;
+        computerText.textContent = `\u{41A}\u{43E}\u{43C}\u{43F}'\u{44E}\u{442}\u{435}\u{440} - ${aiScore}`;
+    }
+    if (isFiftyPointModsOn && playerScore >= 50) {
+        clearInterval(fiftyPointsModeTimeInterval);
+        isFiftyPointModsOn = false;
+        alert("\u0412\u0456\u0442\u0430\u044E!\u0412\u0438 \u0432\u0438\u0433\u0440\u0430\u043B\u0438!");
+        actualRang = rangs[2];
+        rangText.textContent = `\u{412}\u{430}\u{448} \u{440}\u{430}\u{43D}\u{433}: ${actualRang}`;
+        playerScore = 0;
+        aiScore = 0;
+        playerText.textContent = `\u{412}\u{438} - ${playerScore}`;
+        computerText.textContent = `\u{41A}\u{43E}\u{43C}\u{43F}'\u{44E}\u{442}\u{435}\u{440} - ${aiScore}`;
+    }
+}
+// GET AI CHOICE
+function getAiChoice() {
+    const randomIndex = Math.floor(Math.random() * choice.length);
+    aiChoice = choice[randomIndex];
+}
+showAiChoice.addEventListener("click", (event)=>{
+    alert(`\u{412}\u{438}\u{431}\u{456}\u{440} \u{43A}\u{43E}\u{43C}\u{43F}'\u{44E}\u{442}\u{435}\u{440}\u{430} \u{431}\u{443}\u{432} "${aiChoice}"`);
+});
+// MODS INSTRUCTION
+const instructionModal = document.querySelector(".rsp__modal");
+const instructionModalBackdrop = document.querySelector(".backdrop");
+const instructionModalClose = document.querySelector(".rsp__modal-close");
+const instructionButton = document.querySelector(".rsp__mods-instruction");
+instructionButton.addEventListener("click", (event)=>{
+    sound.play();
+    instructionModal.style.opacity = "1";
+    instructionModalBackdrop.style.opacity = "1";
+    instructionModalBackdrop.style.pointerEvents = "all";
+});
+instructionModalClose.addEventListener("click", (event)=>{
+    sound.play();
+    instructionModal.style.opacity = "0";
+    instructionModalBackdrop.style.opacity = "0";
+    instructionModalBackdrop.style.pointerEvents = "none";
+});
+// MODS 40 SECONDS
+const fourtySecondsButton = document.querySelector(".rsp__mods-40seconds");
+let isFourtySecondsModeOn = false;
+let isPlayerWin = false;
+let seconds = 40;
+let timeInterval;
+fourtySecondsButton.addEventListener("click", (event)=>{
+    alert("\u0413\u0440\u0430 \u043F\u043E\u0447\u0430\u043B\u0430\u0441\u044C!\u0423 \u0432\u0430\u0441 \u043B\u0438\u0448\u0438\u043B\u043E\u0441\u044C 40 \u0441\u0435\u043A\u0443\u043D\u0434.");
+    isFourtySecondsModeOn = true;
+    // If timer is on, turn off
+    clearInterval(timeInterval);
+    seconds = 40;
+    timeInterval = setInterval(()=>{
+        seconds -= 1;
+        console.log(`\u{417}\u{430}\u{43B}\u{438}\u{448}\u{438}\u{43B}\u{43E}\u{441}\u{44C}: ${seconds} \u{441}\u{435}\u{43A}\u{443}\u{43D}\u{434}`);
+        // Коли час вичерпано
+        if (seconds <= 0) {
+            clearInterval(timeInterval);
+            isFourtySecondsModeOn = false;
+            alert("\u0427\u0430\u0441 \u0432\u0438\u0447\u0435\u0440\u043F\u0430\u043D\u043E!");
+            if (playerScore >= 20) {
+                alert("\u0412\u0456\u0442\u0430\u044E!\u0412\u0438 \u0432\u0438\u0433\u0440\u0430\u043B\u0438!");
+                clearInterval(timeInterval);
+                actualRang = rangs[1];
+                rangText.textContent = `\u{412}\u{430}\u{448} \u{440}\u{430}\u{43D}\u{433}: ${actualRang}`;
+                playerScore = 0;
+                aiScore = 0;
+                playerText.textContent = `\u{412}\u{438} - ${playerScore}`;
+                computerText.textContent = `\u{41A}\u{43E}\u{43C}\u{43F}'\u{44E}\u{442}\u{435}\u{440} - ${aiScore}`;
+            } else {
+                alert("\u041D\u0430\u0436\u0430\u043B\u044C,\u0432\u0438 \u043F\u0440\u043E\u0433\u0440\u0430\u043B\u0438:(");
+                rangText.textContent = `\u{412}\u{430}\u{448} \u{440}\u{430}\u{43D}\u{433}: ${actualRang}`;
+                playerScore = 0;
+                aiScore = 0;
+                playerText.textContent = `\u{412}\u{438} - ${playerScore}`;
+                computerText.textContent = `\u{41A}\u{43E}\u{43C}\u{43F}'\u{44E}\u{442}\u{435}\u{440} - ${aiScore}`;
+            }
+        }
+    }, 1000);
+});
+// MODS 50 pointerEvents
+const fiftyPointsButton = document.querySelector(".rsp__mods-50points");
+let isFiftyPointModsOn = false;
+let isFiftyPointPlayerWin = false;
+let fiftyPointsModeSeconds = 50;
+let fiftyPointsModeTimeInterval;
+fiftyPointsButton.addEventListener("click", (event)=>{
+    alert("\u0413\u0440\u0430 \u043F\u043E\u0447\u0430\u043B\u0430\u0441\u044C! \u0423 \u0432\u0430\u0441 \u043B\u0438\u0448\u0438\u043B\u043E\u0441\u044C 50 \u0441\u0435\u043A\u0443\u043D\u0434!");
+    isFiftyPointModsOn = true;
+    clearInterval(fiftyPointsModeTimeInterval);
+    fiftyPointsModeSeconds = 50;
+    fiftyPointsModeTimeInterval = setInterval(()=>{
+        fiftyPointsModeSeconds -= 1;
+        console.log(`\u{417}\u{430}\u{43B}\u{438}\u{448}\u{438}\u{43B}\u{43E}\u{441}\u{44F} \u{441}\u{435}\u{43A}\u{443}\u{43D}\u{434}: ${fiftyPointsModeSeconds}`);
+        if (fiftyPointsModeSeconds <= 0) {
+            clearInterval(fiftyPointsModeTimeInterval);
+            isFiftyPointModsOn = false;
+            alert("\u0427\u0430\u0441 \u0432\u0438\u0447\u0435\u0440\u043F\u0430\u043D\u043E!");
+            if (playerScore >= 50) {
+                alert("\u0412\u0456\u0442\u0430\u044E!\u0412\u0438 \u0432\u0438\u0433\u0440\u0430\u043B\u0438!");
+                clearInterval(fiftyPointsModeTimeInterval);
+                actualRang = rangs[1];
+                rangText.textContent = `\u{412}\u{430}\u{448} \u{440}\u{430}\u{43D}\u{433}: ${actualRang}`;
+                playerScore = 0;
+                aiScore = 0;
+                playerText.textContent = `\u{412}\u{438} - ${playerScore}`;
+                computerText.textContent = `\u{41A}\u{43E}\u{43C}\u{43F}'\u{44E}\u{442}\u{435}\u{440} - ${aiScore}`;
+            } else {
+                alert("\u041D\u0430\u0436\u0430\u043B\u044C,\u0432\u0438 \u043F\u0440\u043E\u0433\u0440\u0430\u043B\u0438:(");
+                rangText.textContent = `\u{412}\u{430}\u{448} \u{440}\u{430}\u{43D}\u{433}: ${actualRang}`;
+                playerScore = 0;
+                aiScore = 0;
+                playerText.textContent = `\u{412}\u{438} - ${playerScore}`;
+                computerText.textContent = `\u{41A}\u{43E}\u{43C}\u{43F}'\u{44E}\u{442}\u{435}\u{440} - ${aiScore}`;
+            }
+        }
+    }, 1000);
+});
 
 },{}],"i8iQE":[function(require,module,exports,__globalThis) {
+const scientists = [
+    {
+        name: "Albert",
+        surname: "Einstein",
+        birth: 1879,
+        death: 1955
+    },
+    {
+        name: "Isaac",
+        surname: "Newton",
+        birth: 1643,
+        death: 1727
+    },
+    {
+        name: "Marie",
+        surname: "Curie",
+        birth: 1867,
+        death: 1934
+    },
+    {
+        name: "Nikola",
+        surname: "Tesla",
+        birth: 1856,
+        death: 1943
+    },
+    {
+        name: "Ada",
+        surname: "Lovelace",
+        birth: 1815,
+        death: 1852
+    },
+    {
+        name: "Charles",
+        surname: "Darwin",
+        birth: 1809,
+        death: 1882
+    },
+    {
+        name: "Galileo",
+        surname: "Galilei",
+        birth: 1564,
+        death: 1642
+    },
+    {
+        name: "Carl",
+        surname: "Sagan",
+        birth: 1934,
+        death: 1996
+    },
+    {
+        name: "Alan",
+        surname: "Turing",
+        birth: 1912,
+        death: 1954
+    },
+    {
+        name: "Stephen",
+        surname: "Hawking",
+        birth: 1942,
+        death: 2018
+    }
+];
+const grid = document.querySelector(".scientists__grid");
+function renderScientists(data) {
+    grid.innerHTML = "";
+    data.forEach((scientist)=>{
+        const card = document.createElement("li");
+        card.className = "scientists__card";
+        card.innerHTML = `
+      <strong>${scientist.name} ${scientist.surname}</strong><br>
+      ${scientist.birth}\u{2013}${scientist.death}
+    `;
+        grid.appendChild(card);
+    });
+}
+const tasks = document.querySelectorAll(".tasks__item");
+tasks[0].addEventListener("click", ()=>{
+    const res = scientists.filter((s)=>s.birth >= 1801 && s.birth <= 1900);
+    renderScientists(res);
+});
+tasks[1].addEventListener("click", ()=>{
+    const einstein = scientists.find((s)=>s.name === "Albert" && s.surname === "Einstein");
+    alert(`Albert Einstein \u{43D}\u{430}\u{440}\u{43E}\u{434}\u{438}\u{432}\u{441}\u{44F} \u{432} ${einstein.birth} \u{440}\u{43E}\u{446}\u{456}.`);
+});
+tasks[2].addEventListener("click", ()=>{
+    const sorted = [
+        ...scientists
+    ].sort((a, b)=>a.surname.localeCompare(b.surname));
+    renderScientists(sorted);
+});
+tasks[3].addEventListener("click", ()=>{
+    const res = scientists.filter((s)=>s.surname.startsWith("C"));
+    renderScientists(res);
+});
+tasks[4].addEventListener("click", ()=>{
+    const sorted = [
+        ...scientists
+    ].sort((a, b)=>b.death - b.birth - (a.death - a.birth));
+    renderScientists(sorted);
+});
+tasks[5].addEventListener("click", ()=>{
+    const filtered = scientists.filter((s)=>!s.name.startsWith("A"));
+    renderScientists(filtered);
+});
+tasks[6].addEventListener("click", ()=>{
+    const latestBorn = [
+        ...scientists
+    ].sort((a, b)=>b.birth - a.birth)[0];
+    renderScientists([
+        latestBorn
+    ]);
+});
+tasks[7].addEventListener("click", ()=>{
+    const sorted = [
+        ...scientists
+    ].sort((a, b)=>b.death - b.birth - (a.death - a.birth));
+    const maxLived = sorted[0];
+    const minLived = sorted[sorted.length - 1];
+    renderScientists([
+        maxLived,
+        minLived
+    ]);
+});
+tasks[8].addEventListener("click", ()=>{
+    const res = scientists.filter((s)=>s.name[0] === s.surname[0]);
+    renderScientists(res);
+});
 
 },{}],"dY265":[function(require,module,exports,__globalThis) {
+const convertTime = ()=>{
+    const input = parseInt(document.getElementById("hoursInput").value);
+    if (isNaN(input) || input < 0) {
+        document.getElementById("result").innerText = "\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u043A\u043E\u0440\u0435\u043A\u0442\u043D\u0435 \u0447\u0438\u0441\u043B\u043E";
+        return;
+    }
+    const days = Math.floor(input / 86400);
+    const hours = Math.floor(input % 86400 / 3600);
+    const minutes = Math.floor(input % 3600 / 60);
+    const seconds = input % 60;
+    const formatted = `${days} \u{434}\u{43D}. ${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    document.getElementById("result").innerText = formatted;
+};
+document.querySelector(".time__button").addEventListener("click", convertTime);
 
 },{}]},["7wZbQ","2R06K"], "2R06K", "parcelRequire1ad7", {})
 
